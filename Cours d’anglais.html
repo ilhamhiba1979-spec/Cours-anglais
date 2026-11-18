@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cours d’anglais en ligne – séances personnalisées</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F5F7FF; --surface:#FFFFFF; --ink:#0F1B4C; --muted:#4A5584;
+  --blue:#2338C9; --blue-ink:#FFFFFF; --gold:#F5B700; --gold-ink:#1A1400;
+  --mint:#0E7A57; --line:#D9DEF5;
+  --head:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;
+  --body:"DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0B1030; --surface:#141B47; --ink:#EEF1FF; --muted:#A9B3E6;
+    --blue:#16205F; --blue-ink:#FFFFFF; --gold:#F5B700; --gold-ink:#1A1400;
+    --mint:#5FD3A6; --line:#27316F; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0B1030; --surface:#141B47; --ink:#EEF1FF; --muted:#A9B3E6;
+  --blue:#16205F; --blue-ink:#FFFFFF; --gold:#F5B700; --gold-ink:#1A1400;
+  --mint:#5FD3A6; --line:#27316F; color-scheme:dark;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.6 var(--body)}
+h1,h2,h3{font-family:var(--head);line-height:1.08;margin:0;letter-spacing:-.02em}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 1.25rem}
+
+/* Hero */
+.hero{
+  background-color:var(--blue);color:var(--blue-ink);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72' viewBox='0 0 72 72'%3E%3Cpath d='M36 6l7 13 14-7-7 14 13 7-13 7 7 14-14-7-7 13-7-13-14 7 7-14-13-7 13-7-7-14 14 7z' fill='none' stroke='%23ffffff' stroke-opacity='.13' stroke-width='1.5'/%3E%3C/svg%3E");
+  padding:4rem 0 5rem;
+}
+.hero .wrap{display:grid;gap:2.5rem;grid-template-columns:1.4fr 1fr;align-items:center}
+.hero h1{font-size:clamp(2.4rem,6.4vw,4.4rem);font-weight:800}
+.hero p{font-size:1.2rem;max-width:34ch;margin:1.25rem 0 2rem;opacity:.92}
+.btn{display:inline-block;background:var(--gold);color:var(--gold-ink);font-weight:700;text-decoration:none;
+  padding:.9rem 1.6rem;border-radius:999px;transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+.facts{background:var(--surface);color:var(--ink);border-radius:1.5rem;padding:1.5rem;display:grid;gap:1rem;
+  border-top:6px solid var(--gold)}
+.facts div{display:flex;gap:.9rem;align-items:baseline}
+.facts b{font:800 1.9rem var(--head);min-width:4.6rem;color:var(--blue)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .facts b{color:var(--gold)}}
+.facts span{color:var(--muted)}
+
+/* Intro */
+.intro{padding:4rem 0 1rem}
+.intro h2{font-size:clamp(1.8rem,4vw,2.6rem);max-width:20ch}
+.intro p{color:var(--muted);max-width:60ch;margin:1rem 0 0}
+
+/* Pricing: les packs montent comme des marches */
+.packs{padding:2.5rem 0 4rem}
+.packs h2{font-size:clamp(1.8rem,4vw,2.6rem)}
+.packs .sub{color:var(--muted);margin:.75rem 0 2.5rem;max-width:56ch}
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:1rem;align-items:end;padding:0;margin:0;list-style:none}
+.pack{background:var(--surface);border:1px solid var(--line);border-radius:1.25rem;padding:1.25rem;display:flex;flex-direction:column;gap:.35rem}
+.pack:nth-child(1){min-height:19rem}
+.pack:nth-child(2){min-height:21rem}
+.pack:nth-child(3){min-height:23rem}
+.pack:nth-child(4){min-height:25rem}
+.pack:nth-child(5){min-height:27rem;background:var(--blue);color:var(--blue-ink);border-color:transparent}
+.pack h3{font-size:1.15rem}
+.pack .n{font:800 2.6rem var(--head);line-height:1;margin-top:.75rem}
+.pack .n small{font:500 .95rem var(--body);opacity:.8;margin-left:.25rem}
+.pack .price{font:700 1.5rem var(--head);margin-top:.5rem}
+.pack .per{color:var(--muted);font-size:.95rem}
+.pack:nth-child(5) .per{color:inherit;opacity:.85}
+.save{margin-top:auto;font-weight:700;color:var(--mint);font-size:.95rem;padding-top:.75rem}
+.pack:nth-child(5) .save{color:var(--gold)}
+.pack .btn{margin-top:.75rem;text-align:center;padding:.7rem 1rem;font-size:.95rem}
+.pack:nth-child(1) .btn,.pack:nth-child(2) .btn,.pack:nth-child(3) .btn,.pack:nth-child(4) .btn{background:var(--blue);color:var(--blue-ink)}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]) .pack:nth-child(-n+4) .btn{background:var(--gold);color:var(--gold-ink)}
+  :root:not([data-theme="light"]) .pack:nth-child(5){background:#22307F}
+}
+.note{margin-top:1.5rem;color:var(--muted);font-size:.95rem}
+
+/* Contact */
+.contact{background:var(--surface);border-top:1px solid var(--line);padding:3.5rem 0 4rem;text-align:center}
+.contact h2{font-size:clamp(1.6rem,3.6vw,2.3rem)}
+.contact p{color:var(--muted);margin:.75rem auto 1.75rem;max-width:44ch}
+footer{padding:1.5rem 0 2rem;text-align:center;color:var(--muted);font-size:.9rem}
+
+@media (max-width:900px){
+  .hero .wrap{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr 1fr}
+  .pack,.pack:nth-child(n){min-height:0}
+  .pack:nth-child(5){grid-column:1/-1}
+}
+@media (max-width:520px){.steps{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <h1>Parlez anglais avec confiance, depuis chez vous.</h1>
+      <p>Cours d’anglais en ligne, en direct, avec une professeure qui s’adapte à votre rythme. Votre première séance est offerte.</p>
+      <a class="btn" href="#packs">Voir les formules</a>
+    </div>
+    <div class="facts" aria-label="Points clés">
+      <div><b>50 min</b><span>par séance, en visioconférence</span></div>
+      <div><b>1 à 1</b><span>des cours personnalisés pour chaque élève</span></div>
+      <div><b>Actif</b><span>des séances interactives, pour parler dès le premier cours</span></div>
+    </div>
+  </div>
+</header>
+
+<section class="intro">
+  <div class="wrap">
+    <h2>Un cours qui suit votre progression, pas l’inverse.</h2>
+    <p>Chaque séance est construite autour de votre niveau et de vos objectifs. On pratique, on corrige, on avance à votre rythme. Plus vous prenez de séances, plus le prix de chaque cours baisse.</p>
+  </div>
+</section>
+
+<section class="packs" id="packs">
+  <div class="wrap">
+    <h2>Choisissez votre formule</h2>
+    <p class="sub">Chaque séance dure 50 minutes, et votre première séance est offerte. Plus le pack est grand, plus le tarif par cours est avantageux.</p>
+    <ol class="steps">
+      <li class="pack">
+        <h3>🌸 Pack Découverte</h3>
+        <div class="n">4<small>séances</small></div>
+        <div class="price">350 DH</div>
+        <div class="per">soit 87,50 DH par séance</div>
+        <a class="btn" href="https://wa.me/212669303287?text=Bonjour%2C%20je%20souhaite%20r%C3%A9server%20le%20Pack%20D%C3%A9couverte%20(4%20s%C3%A9ances)." target="_blank" rel="noopener">Réserver</a>
+      </li>
+      <li class="pack">
+        <h3>🌷 Pack Essentiel</h3>
+        <div class="n">8<small>séances</small></div>
+        <div class="price">650 DH</div>
+        <div class="per">soit 81,25 DH par séance</div>
+        <div class="save">Vous économisez 50 DH</div>
+        <a class="btn" href="https://wa.me/212669303287?text=Bonjour%2C%20je%20souhaite%20r%C3%A9server%20le%20Pack%20Essentiel%20(8%20s%C3%A9ances)." target="_blank" rel="noopener">Réserver</a>
+      </li>
+      <li class="pack">
+        <h3>⭐ Pack Progression</h3>
+        <div class="n">12<small>séances</small></div>
+        <div class="price">900 DH</div>
+        <div class="per">soit 75 DH par séance</div>
+        <div class="save">Vous économisez 150 DH</div>
+        <a class="btn" href="https://wa.me/212669303287?text=Bonjour%2C%20je%20souhaite%20r%C3%A9server%20le%20Pack%20Progression%20(12%20s%C3%A9ances)." target="_blank" rel="noopener">Réserver</a>
+      </li>
+      <li class="pack">
+        <h3>💎 Pack Intensif</h3>
+        <div class="n">16<small>séances</small></div>
+        <div class="price">1 150 DH</div>
+        <div class="per">soit environ 71,90 DH par séance</div>
+        <div class="save">Vous économisez 250 DH</div>
+        <a class="btn" href="https://wa.me/212669303287?text=Bonjour%2C%20je%20souhaite%20r%C3%A9server%20le%20Pack%20Intensif%20(16%20s%C3%A9ances)." target="_blank" rel="noopener">Réserver</a>
+      </li>
+      <li class="pack">
+        <h3>👑 Pack Premium</h3>
+        <div class="n">20<small>séances</small></div>
+        <div class="price">1 350 DH</div>
+        <div class="per">soit 67,50 DH par séance</div>
+        <div class="save">Vous économisez 400 DH</div>
+        <a class="btn" href="https://wa.me/212669303287?text=Bonjour%2C%20je%20souhaite%20r%C3%A9server%20le%20Pack%20Premium%20(20%20s%C3%A9ances)." target="_blank" rel="noopener">Réserver</a>
+      </li>
+    </ol>
+    <p class="note">Les économies sont calculées par rapport au tarif du Pack Découverte (87,50 DH par séance).</p>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <h2>Prêt(e) à commencer ?</h2>
+    <p>Écrivez-moi sur WhatsApp pour fixer votre première séance gratuite, puis choisir votre pack.</p>
+    <a class="btn" href="https://wa.me/212669303287?text=Bonjour%2C%20je%20souhaite%20r%C3%A9server%20ma%20s%C3%A9ance%20gratuite." target="_blank" rel="noopener">Réserver ma séance gratuite</a>
+  </div>
+</section>
+
+<footer>Cours d’anglais en ligne · Séances de 50 minutes · Tarifs en dirhams (DH)</footer>
+
+</body>
+</html>
